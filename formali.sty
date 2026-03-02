@@ -1,0 +1,80 @@
+\NeedsTeXFormat{LaTeX2e}
+\ProvidesPackage{formali}
+
+% Uppsetning og tungumál
+\usepackage[subpreambles=true]{standalone}
+\usepackage[top=2cm, bottom=2cm, a4paper]{geometry}
+\usepackage[T1]{fontenc}
+\usepackage[utf8]{inputenc}
+\usepackage[icelandic]{babel}
+\usepackage[parfill]{parskip}
+\usepackage{titlesec}
+\usepackage{microtype} 
+
+% Header Logic
+\usepackage{fancyhdr}
+\pagestyle{fancy}
+\fancyhead[L]{\stuttAfangi}
+\fancyhead[C]{\nafn}
+\fancyhead[R]{\daemaskamtur} % Þarf að skilgreina í .tex skrá
+
+\newcommand{\afangi}{\LaTeX101G --- Sniðmát}
+\newcommand{\stuttAfangi}{Sniðmát}
+\newcommand{\nafn}{MatthiasAH}
+
+
+% Myndir
+\usepackage{graphicx}
+\usepackage{tikz}
+
+% Listar
+\usepackage[shortlabels]{enumitem}
+
+% Stærðfræðipakkar
+\usepackage{amsmath, amsfonts, amssymb, amsthm, mathtools}
+
+% Afmarkarar, notið \abs* til að fá sjálfstækkandi
+\DeclarePairedDelimiter\abs{\lvert}{\rvert}
+\DeclarePairedDelimiter\norm{\lVert}{\rVert}
+
+% Virkjar
+\DeclareMathOperator{\sech}{sech}
+\DeclareMathOperator{\csch}{csch}
+\DeclareMathOperator{\lcm}{lcm}
+\DeclareMathOperator{\im}{im}
+\DeclareMathOperator{\rk}{rk}
+\DeclareMathOperator{\nul}{null}
+\DeclareMathOperator{\spn}{span}
+
+% Algeng mengi
+\newcommand{\C}{\mathbb{C}}
+\newcommand{\R}{\mathbb{R}}
+\newcommand{\Q}{\mathbb{Q}}
+\newcommand{\Z}{\mathbb{Z}}
+\newcommand{\N}{\mathbb{N}}
+
+% Hlekkir
+\usepackage[colorlinks=true, linkcolor=blue, urlcolor=blue]{hyperref}
+
+
+% Dæma env
+\newcommand{\sectionfont}{\Large\bfseries}
+
+\titleformat{\section}
+  {\sectionfont}
+  {Dæmi \thesection} 
+  {0pt}
+  {\sectionfont}
+  [\titlerule]
+
+\NewDocumentCommand{\daemi}{o}{
+    \section{\IfValueTF{#1}{: #1}{}}
+}
+\newcommand{\svar}[1]{\subsection*{#1:}}
+
+
+% Fjarlæga tölusetningu
+\setcounter{secnumdepth}{1} 
+\pagenumbering{gobble}
+
+\endinput
